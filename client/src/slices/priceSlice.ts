@@ -1,5 +1,6 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+// src/slices/priceSlice.ts
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
 interface PriceState {
   prices: any[];
@@ -13,13 +14,13 @@ const initialState: PriceState = {
   error: null,
 };
 
-export const fetchPrices = createAsyncThunk('prices/fetchPrices', async () => {
-  const response = await axios.get('/api/prices');
+export const fetchPrices = createAsyncThunk("prices/fetchPrices", async () => {
+  const response = await axios.get("http://localhost:5000/api/prices"); // Adjust the URL as needed
   return response.data;
 });
 
 const priceSlice = createSlice({
-  name: 'prices',
+  name: "prices",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -34,7 +35,7 @@ const priceSlice = createSlice({
       })
       .addCase(fetchPrices.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.error.message || 'Something went wrong';
+        state.error = action.error.message || "Something went wrong";
       });
   },
 });

@@ -1,6 +1,5 @@
-// client/src/store/index.ts
+// src/store/index.ts
 import { configureStore } from "@reduxjs/toolkit";
-import { useDispatch } from "react-redux";
 import priceReducer from "../slices/priceSlice";
 
 export const store = configureStore({
@@ -9,5 +8,5 @@ export const store = configureStore({
   },
 });
 
+export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
-export const useAppDispatch = () => useDispatch<AppDispatch>();
