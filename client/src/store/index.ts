@@ -1,6 +1,7 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { useDispatch } from 'react-redux';
-import priceReducer from '../slices/priceSlice';
+// client/src/store/index.ts
+import { configureStore } from "@reduxjs/toolkit";
+import { useDispatch } from "react-redux";
+import priceReducer from "../slices/priceSlice";
 
 export const store = configureStore({
   reducer: {

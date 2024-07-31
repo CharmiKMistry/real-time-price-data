@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from '../store';
-import { fetchPrices } from '../slices/priceSlice';
+import { useAppDispatch } from '../../store';
+import { fetchPrices } from '../../slices/priceSlice';
 
 const Home = () => {
   const dispatch = useAppDispatch();
