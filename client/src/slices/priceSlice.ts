@@ -15,7 +15,7 @@ const initialState: PriceState = {
 };
 
 export const fetchPrices = createAsyncThunk("prices/fetchPrices", async () => {
-  const response = await axios.get("http://localhost:5000/api/prices"); // Adjust the URL as needed
+  const response = await axios.get("http://localhost:5000/api/prices"); // Ensure this URL matches your backend
   return response.data;
 });
 
