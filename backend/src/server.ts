@@ -1,8 +1,9 @@
 import express, { Application, Request, Response } from "express";
-import mongoose from "mongoose";
 import dotenv from "dotenv";
 import priceRoutes from "./routes/priceRoutes";
 import cors from "cors";
+import connectDB from "./config/db";
+import { swaggerUi, swaggerSpec } from "./swagger";
 
 dotenv.config();
 
@@ -25,16 +26,16 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/prices", priceRoutes);
 
+// Swagger setup
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
 // Error handling middleware
 app.use((err: any, req: any, res: any, next: any) => {
   console.error(err.stack);
   res.status(500).send("Something went wrong!");
 });
 
-mongoose
-  .connect(process.env.MONGO_URI!)
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.log(err));
+connectDB();
 
 app.get("/", (req: Request, res: Response) => {
   res.send("API is running...");
