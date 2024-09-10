@@ -1,5 +1,4 @@
-// src/components/PriceTable.tsx
-import React from 'react';
+import React from "react";
 
 interface Price {
   _id: string;

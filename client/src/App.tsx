@@ -1,9 +1,8 @@
-// src/App.tsx
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchPrices } from './slices/priceSlice';
-import { RootState, AppDispatch } from './store';
-import PriceTable from './components/PriceTable';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchPrices } from "./slices/priceSlice";
+import { RootState, AppDispatch } from "./store";
+import PriceTable from "./components/PriceTable";
 
 const App: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();

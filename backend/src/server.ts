@@ -24,10 +24,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/api/prices", priceRoutes);
-
 // Swagger setup
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+app.use("/api/prices", priceRoutes);
 
 // Error handling middleware
 app.use((err: any, req: any, res: any, next: any) => {
